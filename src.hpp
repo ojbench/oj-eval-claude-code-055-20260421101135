@@ -1,4 +1,3 @@
-// Cleaned
 #ifndef SRC_HPP
 #define SRC_HPP
 
@@ -137,14 +136,6 @@ public:
     virtual string send_status(int y, int m, int d) override {
         date query_date(y, m, d);
         if (query_date < send_date) return "mail not send";
-
-        bool all_earlier = true;
-        for (int i = 0; i < len; ++i) {
-            if (!(station_time[i] < query_date)) {
-                all_earlier = false;
-                break;
-            }
-        }
 
         if (len > 0 && !(query_date < station_time[0])) {
             int last_idx = -1;
